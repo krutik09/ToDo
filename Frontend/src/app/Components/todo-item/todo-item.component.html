@@ -1,0 +1,18 @@
+<div class="card my-2 mx-2 " style="width: 20rem;margin: 300px;">
+    <div class="card-body">
+      <h5 class="card-title">{{todo.title}}</h5>
+      <div *ngIf="!isEditing;else editMode">
+        <p class="card-text">{{todo.description}}</p>
+      </div>
+      <ng-template #editMode>
+        <input type="text" name="description" class="form-control" placeholder="Enter your descriptionto edit" [(ngModel)]="editdesc">
+      </ng-template>
+      <button href="#" class="btn btn-danger" (click)="delete(todo)">Delete Todo</button>
+      <div *ngIf="!isEditing; else savebtn">
+        <button href="#" class="btn btn-primary my-2" (click)="edit()">Edit Todo</button>
+      </div>
+      <ng-template #savebtn>
+        <button href="#" class="btn btn-primary my-2" (click)="save(todo,editdesc)">save Todo</button>
+      </ng-template>
+    </div>
+  </div>

@@ -1,0 +1,19 @@
+<!-- <app-add-todo (addedtodo)="addtodo($event)" ></app-add-todo> -->
+<!-- <div class="container d-flex">
+    <div class="row my-2 mx-2">
+        <app-todo-item class="col-md-2 my-2 mx-2"  *ngFor="let x of todoList" [todo]="x"  (DeleteTodo)="deltodo($event)" (EditTodo)="editTodo($event)"></app-todo-item>
+    </div>
+</div> -->
+<dx-data-grid
+  id="gridContainer"
+  [dataSource]="todoList"
+  keyExpr="title"
+  [columns]="['title','description']"
+  [showBorders]="true"
+  [editing]="{allowAdding:true,allowDeleting:true,allowUpdating:true}"
+  (onRowInserting)="onAdding($event)"
+  (onRowRemoving)="onDeleting($event)"
+  (onRowUpdating)="onUpdating($event)"
+  style="margin: auto;width: 75%;"
+>
+</dx-data-grid>

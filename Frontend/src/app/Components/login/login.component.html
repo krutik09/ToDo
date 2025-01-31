@@ -1,0 +1,13 @@
+<div class="d-flex justify-content-center">
+    <div>
+        <h1 class="my-3">Login</h1>
+        <form class="form-control" [formGroup]="loginForm">
+        <input type="text"  formControlName="username" class="form-control my-3" id="username" name="username" placeholder="Enter your Username">
+        <small *ngIf="loginForm.controls['username'].dirty && loginForm.hasError('required','username')" class="text-danger">*Username is required</small>
+        <input type="password" formControlName="password" class="form-control my-3" id="password" name="password" placeholder="Enter your password">
+        <small *ngIf="loginForm.controls['password'].dirty&&loginForm.hasError('required','password')" class="text-danger">*Password is required</small>
+        <button [disabled]="loginForm.invalid" (click)="onLogin()" class="btn btn-danger w-100 my-3" type="submit">submit</button>
+        <p>Dont have account?<a id="forget" routerLink="/signup">Signup</a></p>
+    </form>
+</div>
+</div>
